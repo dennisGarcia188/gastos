@@ -1,0 +1,13 @@
+package com.gastos.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.gastos.models.Gasto;
+
+@Repository
+public interface GastoRepository extends JpaRepository<Gasto, String>{
+	
+	
+
+}

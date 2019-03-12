@@ -1,0 +1,17 @@
+package com.gastos.gastos;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+import com.gastos.resource.GastoResource;
+
+@SpringBootApplication
+@ComponentScan(basePackageClasses = GastoResource.class)
+public class GastosApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(GastosApplication.class, args);
+	}
+
+}
