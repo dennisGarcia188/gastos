@@ -1,5 +1,0 @@
-package com.gastos.repository;
-
-public interface GastoRepository {
-
-}
