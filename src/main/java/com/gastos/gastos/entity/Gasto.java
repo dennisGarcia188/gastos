@@ -1,4 +1,4 @@
-package com.gastos.gastos;
+package com.gastos.gastos.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.gastos.gastos;
+package com.gastos.gastos.resource;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.gastos.gastos.entity.Gasto;
+import com.gastos.gastos.repository.GastoRepository;
 
 @RestController
 @RequestMapping("/gerenciargastos")
