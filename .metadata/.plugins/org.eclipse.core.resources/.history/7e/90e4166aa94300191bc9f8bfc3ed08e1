@@ -1,0 +1,11 @@
+package com.gastos.resource;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.gastos.models.Gasto;
+
+public interface GastoRepository extends JpaRepository<Gasto, String>{
+	
+	
+
+}
