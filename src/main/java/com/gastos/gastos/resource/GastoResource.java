@@ -37,13 +37,11 @@ public class GastoResource {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Optional<Gasto>> buscar(@PathVariable Long id){
-		
 		Optional<Gasto> gasto = gastoRepository.findById(id);
 		if (gasto == null) {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(gasto);
-		
 	}
 
 }

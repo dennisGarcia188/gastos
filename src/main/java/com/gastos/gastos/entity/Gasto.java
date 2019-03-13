@@ -1,5 +1,7 @@
 package com.gastos.gastos.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +20,7 @@ public class Gasto {
 	
 	private String dataHora;
 	
-	private Double valor;
+	private BigDecimal valor;
 	
 	private String tags;
 
@@ -55,11 +57,11 @@ public class Gasto {
 		this.dataHora = dataHora;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
