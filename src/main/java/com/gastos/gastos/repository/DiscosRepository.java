@@ -5,13 +5,12 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.gastos.gastos.entity.Gasto;
+import com.gastos.gastos.entity.Disco;
+
 
 @Repository
-public interface GastoRepository extends JpaRepository<Gasto, String>{
+public interface DiscosRepository extends JpaRepository<Disco, String>{
 
-	Optional<Gasto> findById(Long id);
+	Optional<Disco> findById(Long id);
 	
-	
-
 }

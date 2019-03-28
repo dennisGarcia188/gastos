@@ -10,5 +10,4 @@ public class GastosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GastosApplication.class, args);
 	}
-
 }
