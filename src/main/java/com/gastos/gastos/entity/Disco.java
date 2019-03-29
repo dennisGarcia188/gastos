@@ -28,7 +28,7 @@ public class Disco {
 	 */
 	@ManyToOne
 	@JoinTable(name="artista")
-	private Artista artists;
+	private Artista[] artists;
 	
 	/*
 	 * available_markets
@@ -50,7 +50,11 @@ public class Disco {
 	 */
 	private String id;
 	
-	//private Image[] images;
+	
+	/*
+	 * images
+	 */
+	private Image[] images;
 	
 	/*
 	 * name
@@ -86,14 +90,6 @@ public class Disco {
 
 	public void setAlbum_type(String album_type) {
 		this.album_type = album_type;
-	}
-
-	public Artista getArtists() {
-		return artists;
-	}
-
-	public void setArtists(Artista artists) {
-		this.artists = artists;
 	}
 
 	public String[] getAvailable_markets() {
@@ -150,6 +146,22 @@ public class Disco {
 
 	public void setUri(String uri) {
 		this.uri = uri;
+	}
+
+	public Artista[] getArtists() {
+		return artists;
+	}
+
+	public void setArtists(Artista[] artists) {
+		this.artists = artists;
+	}
+
+	public Image[] getImages() {
+		return images;
+	}
+
+	public void setImages(Image[] images) {
+		this.images = images;
 	}
 
 }
