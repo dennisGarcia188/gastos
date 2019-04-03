@@ -10,7 +10,7 @@ public class Image {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idimage;
 	
 	private Integer height;
 	
@@ -18,13 +18,9 @@ public class Image {
 	
 	private Integer width;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	/*
+	 * getters and setters
+	 */
 
 	public Integer getHeight() {
 		return height;
@@ -48,6 +44,14 @@ public class Image {
 
 	public void setWidth(Integer width) {
 		this.width = width;
+	}
+
+	public Long getIdimage() {
+		return idimage;
+	}
+
+	public void setIdimage(Long idimage) {
+		this.idimage = idimage;
 	}
 
 }

@@ -1,10 +1,12 @@
 package com.gastos.gastos.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -12,11 +14,11 @@ public class Artista {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idArtista;
+	private Long id_artista;
 	
-	@ManyToOne
-	@JoinTable(name="externalUrls")
-	private ExternalUrls externalUrls;
+	@ManyToOne(targetEntity = Externalurls.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="idexternal")
+	private Externalurls external_urls;
 	
 	private String href;
 	
@@ -31,13 +33,7 @@ public class Artista {
 	/*
 	 * getters and setters
 	 */
-	public Long getIdArtista() {
-		return idArtista;
-	}
-
-	public void setIdArtista(Long idArtista) {
-		this.idArtista = idArtista;
-	}
+	
 
 	public String getHref() {
 		return href;
@@ -79,13 +75,23 @@ public class Artista {
 		this.uri = uri;
 	}
 
-	public ExternalUrls getExternalUrls() {
-		return externalUrls;
+	public Long getId_artista() {
+		return id_artista;
 	}
 
-	public void setExternalUrls(ExternalUrls externalUrls) {
-		this.externalUrls = externalUrls;
+	public void setId_artista(Long id_artista) {
+		this.id_artista = id_artista;
 	}
+
+	public Externalurls getExternal_urls() {
+		return external_urls;
+	}
+
+	public void setExternal_urls(Externalurls external_urls) {
+		this.external_urls = external_urls;
+	}
+
+	
 
 	
 }

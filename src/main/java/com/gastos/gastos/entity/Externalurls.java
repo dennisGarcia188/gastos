@@ -1,32 +1,27 @@
 package com.gastos.gastos.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ExternalUrls {
+public class Externalurls {
 	
-	@Id
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idexternal;
 	
+    @Column(name="[key]")
 	private String key;
 	
+    @Column(name="[value]")
 	private String value;
 	
 	/*
 	 * getters and setters
 	 */
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getKey() {
 		return key;
@@ -42,6 +37,14 @@ public class ExternalUrls {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public Long getIdexternal() {
+		return idexternal;
+	}
+
+	public void setIdexternal(Long idexternal) {
+		this.idexternal = idexternal;
 	}
 
 }

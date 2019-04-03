@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Venda {
@@ -27,9 +25,9 @@ public class Venda {
 	/*
 	 * cliente
 	 */
-	@ManyToOne
-	@JoinTable(name="cliente")
-	private Cliente cliente;
+	private String cliente;
+	
+	private BigDecimal cashBack;
 
 	/*
 	 * getters and setters 
@@ -50,11 +48,19 @@ public class Venda {
 		this.valor = valor;
 	}
 
-	public Cliente getCliente() {
+	public BigDecimal getCashBack() {
+		return cashBack;
+	}
+
+	public void setCashBack(BigDecimal cashBack) {
+		this.cashBack = cashBack;
+	}
+
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 }

@@ -1,11 +1,18 @@
 package com.gastos.gastos.entity;
 
+import java.math.BigDecimal;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 
 
 @Entity
@@ -16,7 +23,7 @@ public class Disco {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idDisco;
+	private long id_disco;
 	
 	/*
 	 * album_type
@@ -26,8 +33,9 @@ public class Disco {
 	/*
 	 * artists
 	 */
-	@ManyToOne
-	@JoinTable(name="artista")
+	@ManyToMany(targetEntity = Artista.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OrderColumn(name="id_artista")
+	@JoinColumn(name="id_artista")
 	private Artista[] artists;
 	
 	/*
@@ -38,7 +46,9 @@ public class Disco {
 	/*
 	 * external_urls
 	 */
-	private String external_urls;
+	@ManyToOne(targetEntity = Externalurls.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="idexternal")
+	private Externalurls external_urls;
 	
 	/*
 	 * href
@@ -54,6 +64,8 @@ public class Disco {
 	/*
 	 * images
 	 */
+	@OneToMany(targetEntity = Image.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OrderColumn(name="idimage")
 	private Image[] images;
 	
 	/*
@@ -71,19 +83,14 @@ public class Disco {
 	 */
 	private String uri;
 	
+	private BigDecimal valor;
+	
 
 	/*
 	 * getters and setters 
 	 */
 
-	public long getIdDisco() {
-		return idDisco;
-	}
-
-	public void setIdDisco(long idDisco) {
-		this.idDisco = idDisco;
-	}
-
+	
 	public String getAlbum_type() {
 		return album_type;
 	}
@@ -98,14 +105,6 @@ public class Disco {
 
 	public void setAvailable_markets(String[] available_markets) {
 		this.available_markets = available_markets;
-	}
-
-	public String getExternal_urls() {
-		return external_urls;
-	}
-
-	public void setExternal_urls(String external_urls) {
-		this.external_urls = external_urls;
 	}
 
 	public String getHref() {
@@ -148,6 +147,14 @@ public class Disco {
 		this.uri = uri;
 	}
 
+	public Image[] getImages() {
+		return images;
+	}
+
+	public void setImages(Image[] images) {
+		this.images = images;
+	}
+
 	public Artista[] getArtists() {
 		return artists;
 	}
@@ -156,12 +163,31 @@ public class Disco {
 		this.artists = artists;
 	}
 
-	public Image[] getImages() {
-		return images;
+	public long getId_disco() {
+		return id_disco;
 	}
 
-	public void setImages(Image[] images) {
-		this.images = images;
+	public void setId_disco(long id_disco) {
+		this.id_disco = id_disco;
 	}
+
+	public Externalurls getExternal_urls() {
+		return external_urls;
+	}
+
+	public void setExternal_urls(Externalurls external_urls) {
+		this.external_urls = external_urls;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	
+
 
 }

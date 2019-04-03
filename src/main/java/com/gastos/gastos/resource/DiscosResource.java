@@ -1,8 +1,6 @@
 package com.gastos.gastos.resource;
 
 import java.util.List;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +36,8 @@ public class DiscosResource {
 	 * método para consultar uma disco pelo identificador
 	 */
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Disco>> consultarDisco(@PathVariable Long id){
-		Optional<Disco> disco = discosRepository.findById(id);
+	public ResponseEntity<Disco> consultarDisco(@PathVariable Long id){
+		Disco disco = discosRepository.findById(id);
 		if (disco == null) {
 			return ResponseEntity.notFound().build();
 		}
