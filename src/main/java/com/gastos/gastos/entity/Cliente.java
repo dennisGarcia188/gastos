@@ -1,5 +1,7 @@
 package com.gastos.gastos.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +25,7 @@ public class Cliente {
 	/*
 	 * cashback 
 	 */
-	private Double cashBack;
+	private BigDecimal cashBack;
 
 	/*
 	 * getters and setters 
@@ -44,11 +46,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Double getCashBack() {
+	public BigDecimal getCashBack() {
 		return cashBack;
 	}
 
-	public void setCashBack(Double cashBack) {
+	public void setCashBack(BigDecimal cashBack) {
 		this.cashBack = cashBack;
 	}
 }
