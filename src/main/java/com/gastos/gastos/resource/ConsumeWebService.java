@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.gastos.gastos.entity.Disco;
@@ -34,20 +35,25 @@ public class ConsumeWebService {
     */
    @RequestMapping(value = "/template/consumeAlbums")
    public Disco getAlbunsList1(@RequestParam("idAlbum") String idAlbum, @RequestParam("token") String token) {
-	  Disco disco = new Disco();
-      HttpHeaders headers = new HttpHeaders();
-      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-      headers.add("Authorization", "Bearer " + token);
-      HttpEntity <Disco> entity = new HttpEntity<Disco>(headers);
-      
-      disco = restTemplate.exchange("https://api.spotify.com/v1/albums/" + idAlbum, 
-    		  HttpMethod.GET, entity, Disco.class).getBody();
-      
-      DiscosRepository.save(disco);
-      
-      return disco;
-      
-   }
+	 try {  
+		  Disco disco = new Disco();
+	      HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      headers.add("Authorization", "Bearer " + token);
+	      HttpEntity <Disco> entity = new HttpEntity<Disco>(headers);
+	      
+	      disco = restTemplate.exchange("https://api.spotify.com/v1/albums/" + idAlbum, 
+	    		  HttpMethod.GET, entity, Disco.class).getBody();
+	      
+	      DiscosRepository.save(disco);
+	      
+	      return disco;
+	 } catch (RestClientException e) {
+		   System.out.println("erro: " + e);
+		   Disco disco = new Disco();
+		   return disco;
+	} 
+  }
    
    /*
     * método para buscar e salvar no banco uma lista de discos(albuns) por genero
