@@ -11,29 +11,48 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Artista {
-	
+	/*
+	 * id_artista
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_artista;
-	
-	@ManyToOne(targetEntity = Externalurls.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="idexternal")
+
+	/*
+	 * external_urls
+	 */
+	@ManyToOne(targetEntity = Externalurls.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idexternal")
 	private Externalurls external_urls;
-	
+
+	/*
+	 * href
+	 */
 	private String href;
-	
+
+	/*
+	 * id
+	 */
 	private String id;
-	
+
+	/*
+	 * name
+	 */
 	private String name;
-	
+
+	/*
+	 * type
+	 */
 	private String type;
-	
+
+	/*
+	 * uri
+	 */
 	private String uri;
 
 	/*
 	 * getters and setters
 	 */
-	
 
 	public String getHref() {
 		return href;
@@ -91,7 +110,4 @@ public class Artista {
 		this.external_urls = external_urls;
 	}
 
-	
-
-	
 }

@@ -14,14 +14,13 @@ import com.gastos.gastos.repository.ClienteRepository;
 @RestController
 @RequestMapping("/registrarCliente")
 public class ClienteResource {
-	
-	@Autowired(required=true)
+
+	@Autowired(required = true)
 	private ClienteRepository clienteRepository;
-	
+
 	@PostMapping
 	public Cliente salvarDisco(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente); 	
+		return clienteRepository.save(cliente);
 	}
-	
 
 }

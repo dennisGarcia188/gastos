@@ -9,28 +9,31 @@ import javax.persistence.Id;
 
 @Entity
 public class Venda {
-	
+
 	/*
 	 * id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	/*
 	 * valor
 	 */
 	private BigDecimal valor;
-	
+
 	/*
 	 * cliente
 	 */
 	private String cliente;
-	
+
+	/*
+	 * cashback
+	 */
 	private BigDecimal cashBack;
 
 	/*
-	 * getters and setters 
+	 * getters and setters
 	 */
 	public long getId() {
 		return id;

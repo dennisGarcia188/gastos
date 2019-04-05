@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Cliente {
-	
+
 	/*
 	 * id
 	 */
@@ -21,14 +21,14 @@ public class Cliente {
 	 * nome
 	 */
 	private String nome;
-	
+
 	/*
-	 * cashback 
+	 * cashback
 	 */
 	private BigDecimal cashBack;
 
 	/*
-	 * getters and setters 
+	 * getters and setters
 	 */
 	public long getId() {
 		return id;

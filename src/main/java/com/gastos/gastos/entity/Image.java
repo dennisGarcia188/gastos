@@ -7,15 +7,27 @@ import javax.persistence.Id;
 
 @Entity
 public class Image {
-	
+
+	/*
+	 * idimage
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idimage;
-	
+
+	/*
+	 * height
+	 */
 	private Integer height;
-	
+
+	/*
+	 * url
+	 */
 	private String url;
-	
+
+	/*
+	 * width
+	 */
 	private Integer width;
 
 	/*

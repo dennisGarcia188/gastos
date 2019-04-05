@@ -7,20 +7,32 @@ import javax.persistence.Id;
 
 @Entity
 public class Genero {
-	
+
 	/*
 	 * id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	
+
+	/*
+	 * name
+	 */
 	public String name;
-	
+
+	/*
+	 * percentual
+	 */
 	public String percentual;
-	
+
+	/*
+	 * diaSemana
+	 */
 	public String diaSemana;
 
+	/*
+	 * getters and setters
+	 */
 	public Long getId() {
 		return id;
 	}

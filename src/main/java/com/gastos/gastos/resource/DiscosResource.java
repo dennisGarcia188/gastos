@@ -18,10 +18,10 @@ import com.gastos.gastos.repository.DiscosRepository;
 @RestController
 @RequestMapping("/gerenciarDiscos")
 public class DiscosResource {
-	
-	@Autowired(required=true)
+
+	@Autowired(required = true)
 	private DiscosRepository discosRepository;
-	
+
 	/*
 	 * método para consultar todos os discos
 	 */
@@ -30,27 +30,25 @@ public class DiscosResource {
 		List<Disco> listarDiscos = discosRepository.findAll();
 		return listarDiscos;
 	}
-	
-	
+
 	/*
 	 * método para consultar uma disco pelo identificador
 	 */
 	@GetMapping("/{id}")
-	public ResponseEntity<Disco> consultarDisco(@PathVariable Long id){
+	public ResponseEntity<Disco> consultarDisco(@PathVariable Long id) {
 		Disco disco = discosRepository.findById(id);
 		if (disco == null) {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(disco);
 	}
-	
+
 	/*
 	 * método para salvar um disco novo
 	 */
 	@PostMapping
 	public Disco salvarDisco(@RequestBody @Valid Disco disco) {
-		return discosRepository.save(disco); 	
+		return discosRepository.save(disco);
 	}
-	
 
 }

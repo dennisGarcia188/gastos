@@ -14,83 +14,82 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
-
 @Entity
 public class Disco {
-	
+
 	/*
 	 * idDisco
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_disco;
-	
+
 	/*
 	 * album_type
 	 */
 	private String album_type;
-	
+
 	/*
 	 * artists
 	 */
-	@ManyToMany(targetEntity = Artista.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@OrderColumn(name="id_artista")
-	@JoinColumn(name="id_artista")
+	@ManyToMany(targetEntity = Artista.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OrderColumn(name = "id_artista")
+	@JoinColumn(name = "id_artista")
 	private Artista[] artists;
-	
+
 	/*
 	 * available_markets
 	 */
 	private String[] available_markets;
-	
+
 	/*
 	 * external_urls
 	 */
-	@ManyToOne(targetEntity = Externalurls.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="idexternal")
+	@ManyToOne(targetEntity = Externalurls.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idexternal")
 	private Externalurls external_urls;
-	
+
 	/*
 	 * href
 	 */
 	private String href;
-	
+
 	/*
 	 * id
 	 */
 	private String id;
-	
-	
+
 	/*
 	 * images
 	 */
-	@OneToMany(targetEntity = Image.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@OrderColumn(name="idimage")
+	@OneToMany(targetEntity = Image.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OrderColumn(name = "idimage")
 	private Image[] images;
-	
+
 	/*
 	 * name
 	 */
 	private String name;
-	
+
 	/*
 	 * type
 	 */
 	private String type;
-	
+
 	/*
 	 * uri
 	 */
 	private String uri;
-	
-	private BigDecimal valor;
-	
 
 	/*
-	 * getters and setters 
+	 * valor
+	 */
+	private BigDecimal valor;
+
+	/*
+	 * getters and setters
 	 */
 
-	
 	public String getAlbum_type() {
 		return album_type;
 	}
@@ -186,8 +185,5 @@ public class Disco {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-
-	
-
 
 }

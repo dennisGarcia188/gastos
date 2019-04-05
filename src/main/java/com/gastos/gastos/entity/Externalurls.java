@@ -8,17 +8,26 @@ import javax.persistence.Id;
 
 @Entity
 public class Externalurls {
-	
-    @Id
+
+	/*
+	 * idexternal
+	 */
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idexternal;
-	
-    @Column(name="[key]")
+
+	/*
+	 * key
+	 */
+	@Column(name = "[key]")
 	private String key;
-	
-    @Column(name="[value]")
+
+	/*
+	 * value
+	 */
+	@Column(name = "[value]")
 	private String value;
-	
+
 	/*
 	 * getters and setters
 	 */
